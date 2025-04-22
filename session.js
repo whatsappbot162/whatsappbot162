@@ -1,31 +1,51 @@
-const { useMultiFileAuthState, makeWASocket } = require('@whiskeysockets/baileys');
-const { default: makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
+const { makeWASocket, useMultiFileAuthState, fetchLatestBaileysVersion } = require('@whiskeysockets/baileys');
 const readline = require('readline');
 const fs = require('fs');
-const path = require('path');
 
-async function generateSession() {
+async function startPairing() {
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
     });
 
-    rl.question('Enter your WhatsApp number (e.g., 254712345678): ', async (number) => {
+    rl.question('Enter your phone number (e.g. 254712345678): ', async (phoneNumber) => {
         rl.close();
 
-        const sessionFolder = './auth_info_baileys';
-        const { state, saveCreds } = await useMultiFileAuthState(sessionFolder);
+        const { version } = await fetchLatestBaileysVersion();
+        const { state, saveCreds } = await useMultiFileAuthState('./session');
 
         const sock = makeWASocket({
+            version,
             auth: state,
-            printQRInTerminal: true,
+            printQRInTerminal: false,
+            browser: ['HipsterSavvy X MD', 'Safari', '3.0'],
+        });
+
+        sock.ev.on('connection.update', async (update) => {
+            const { connection, pairingCode } = update;
+
+            if (pairingCode) {
+                console.log('\n==== YOUR PAIRING CODE ====');
+                console.log(`\n> ${pairingCode}`);
+                console.log('\nEnter this code on WhatsApp: Linked Devices > Link a Device > Use Pairing Code\n');
+            }
+
+            if (connection === 'open') {
+                console.log('\n✅ Successfully connected!');
+                await saveCreds();
+                process.exit(0);
+            }
+
+            if (connection === 'close') {
+                console.log('\n❌ Connection closed. Try again.');
+                process.exit(1);
+            }
         });
 
         sock.ev.on('creds.update', saveCreds);
 
-        console.log('\nScan the QR code above with your WhatsApp to log in.');
-        console.log('After successful login, your session will be saved.');
+        await sock.requestPairingCode(phoneNumber.trim());
     });
 }
 
-generateSession();
+startPairing();
