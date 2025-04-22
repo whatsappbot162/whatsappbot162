@@ -1,61 +1,48 @@
-# HipsterSavvy-Bot 🎵
+<h1 align="center">
+  ⚡ HIPSTER SAVVY x MD ⚡  
+</h1>
 
-![HipsterSavvy Logo](HipsterSavvy-Logo.png)
+<p align="center">
+  <img src="https://your-logo-url.com/HipsterSavvy-Logo.gif" alt="Hipster Savvy Logo" width="200"/>
+</p>
 
-Welcome to the **HipsterSavvy Bot** repository!  
-A powerful WhatsApp bot that automates tasks, plays music, downloads videos, and much more!  
-Stay tuned for some cool features and **interactive experiences**! 🚀
-
----
-
-## 🎶 Enjoy the vibe while exploring:
-
-[Click here to listen to some cool background music 🎧](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-
----
-
-## 🚀 Features:
-
-- **AI Auto-Reply**: Responds intelligently to user messages 🤖
-- **Play Music & Download Videos**: Music and video downloads from platforms like YouTube, MP3Juice, and more 🎶
-- **Session Pairing**: Easily link the bot to WhatsApp using a session code 🔗
-- **Group Moderation**: Ban, mute, kick users, and send automatic welcome/goodbye messages 👥
-- **Cool Features**:
-  - View Once Media Downloader 📸
-  - Auto-Translate Messages 🌍
-  - And much more!
+<p align="center">
+  <b>Changing the Physical World to a Tech World</b><br>
+  <i>Not just a bot—this is your digital soldier.</i><br>
+  <a href="https://youtu.be/your-track">Background Beat (click to vibe)</a>
+</p>
 
 ---
 
-## 🎮 Demo:
+### ⚙️ FEATURES THAT MAKE IT SAVVY:
 
-Here’s a **GIF** of the bot in action (animated to showcase the power of **HipsterSavvy Bot**):
-
-![Bot in Action](https://media.giphy.com/media/XYZ123giphy.gif)
-
----
-
-## 💻 Setup Instructions:
-
-1. Clone this repository or import it into Replit.
-2. Install dependencies: `npm install`
-3. Run `node session.js` to generate your pairing code.
-4. Start the bot with `node index.js`.
+- **AI Auto-Reply** – Replies smarter than your ex.
+- **Cyber Menu** – A powerful command menu interface.
+- **Video/MP3 Downloader** – Grab music, movies, anime on command.
+- **Group Moderation** – Kick, welcome, goodbye... you're the boss.
+- **Bug Menu** – Fix, report, or squash bugs like a tech ninja.
+- **Session Linking via Phone Number** – Generate secure session codes with your number.
+- **Ghost Tagger** – Tag ghost viewers silently in the group.
+- **Auto Backup, Anti Delete, View Once Grabber, Auto Theme Switcher, and More!**
+  
+> You activate co-owners. You control the matrix.
 
 ---
 
-## 🎶 Cool Music:
+### 🧠 GETTING STARTED
 
-Enjoy some **background music** while using the bot:
-- [Spotify Playlist Link](https://open.spotify.com/playlist/XYZ123)
-- [SoundCloud Music](https://soundcloud.com/xyz)
-
----
-
-## 📜 License:
-
-MIT License - Free to use and contribute!
+1. **Fork or Clone** this repo.
+2. Run `npm install` to install the digital fuel.
+3. Use `node session.js` to generate your session.
+4. Add your **Phone Number** and paste your **Session ID** into `session.json`.
+5. Power on the bot: `node index.js`.
 
 ---
 
-### **Stay connected with HipsterSavvy!**
+### ✨ ADD YOUR SESSION
+
+```js
+{
+  "phoneNumber": "+2547XXXXXXX",
+  "session": "PASTE-YOUR-GENERATED-SESSION-ID-HERE"
+}
